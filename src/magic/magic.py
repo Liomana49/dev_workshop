@@ -5,147 +5,84 @@ class Magic:
     """
     
     def fibonacci(self, n):
-        """
-        Calcula el n-ésimo número de la secuencia de Fibonacci.
-        
-        Args:
-            n (int): Posición en la secuencia (empezando desde 0)
-            
-        Returns:
-            int: El n-ésimo número de Fibonacci
-        """
-        return self.fibonaci(n - 1) + self.fibonacci(n - 2)
+        if n <= 1:
+            return n
+        a, b = 0, 1
+        for _ in range(2, n + 1):
+            a, b = b, a + b
+        return b
     
     def secuencia_fibonacci(self, n):
-        """
-        Genera los primeros n números de la secuencia de Fibonacci.
-        
-        Args:
-            n (int): Cantidad de números a generar
-            
-        Returns:
-            list: Lista con los primeros n números de Fibonacci
-        """
-        return secuencia 
+        secuencia = []
+        a, b = 0, 1
+        for _ in range(n):
+            secuencia.append(a)
+            a, b = b, a + b
+        return secuencia
     
     def es_primo(self, n):
-        """
-        Verifica si un número es primo.
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es primo, False en caso contrario
-        """
-        return true 
+        if n <= 1:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
     
     def generar_primos(self, n):
-        """
-        Genera una lista de números primos hasta n.
-        
-        Args:
-            n (int): Límite superior para generar primos
-            
-        Returns:
-            list: Lista de números primos hasta n
-        """
-        return primos 
+        primos = []
+        for num in range(2, n + 1):
+            if self.es_primo(num):
+                primos.append(num)
+        return primos
     
     def es_numero_perfecto(self, n):
-        """
-        Verifica si un número es perfecto (igual a la suma de sus divisores propios).
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número perfecto, False en caso contrario
-        """
-        return n == sum(i for i in range (1, n) if n % i == 0)
+        if n <= 1:
+            return False
+        divisores = [i for i in range(1, n) if n % i == 0]
+        return sum(divisores) == n
     
     def triangulo_pascal(self, filas):
-        """
-        Genera las primeras n filas del triángulo de Pascal.
-        
-        Args:
-            filas (int): Número de filas a generar
-            
-        Returns:
-            list: Lista de listas que representa el triángulo de Pascal
-        """
-        return resultado
+        triangulo = [[1]]
+        for i in range(1, filas):
+            fila = [1]
+            for j in range(1, i):
+                fila.append(triangulo[i-1][j-1] + triangulo[i-1][j])
+            fila.append(1)
+            triangulo.append(fila)
+        return triangulo
     
     def factorial(self, n):
-        """
-        Calcula el factorial de un número.
-        
-        Args:
-            n (int): Número para calcular su factorial
-            
-        Returns:
-            int: El factorial de n
-        """
-        return n * self.factorial(n - 1)
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * self.factorial(n - 1)
     
     def mcd(self, a, b):
-        """
-        Calcula el máximo común divisor de dos números.
-        
-        Args:
-            a (int): Primer número
-            b (int): Segundo número
-            
-        Returns:
-            int: El máximo común divisor de a y b
-        """
-        return a 
+        while b != 0:
+            a, b = b, a % b
+        return a
     
     def mcm(self, a, b):
-        """
-        Calcula el mínimo común múltiplo de dos números.
-        
-        Args:
-            a (int): Primer número
-            b (int): Segundo número
-            
-        Returns:
-            int: El mínimo común múltiplo de a y b
-        """
-        return abs(a * b) // self.mcd(a, b) if a and b else 0
+        if a == 0 or b == 0:
+            return 0
+        return abs(a * b) // self.mcd(a, b)
     
     def suma_digitos(self, n):
-        """
-        Calcula la suma de los dígitos de un número.
-        
-        Args:
-            n (int): Número para sumar sus dígitos
-            
-        Returns:
-            int: La suma de los dígitos de n
-        """
-        return sum(int(d) for d in str(abs(n)))
-    
+        return sum(int(digit) for digit in str(abs(n)))
+
     def es_numero_armstrong(self, n):
-        """
-        Verifica si un número es de Armstrong (igual a la suma de sus dígitos elevados a la potencia del número de dígitos).
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número de Armstrong, False en caso contrario
-        """
-        return n == sum(int(d) ** len(num_str) for d in num_str)
+        num_str = str(n)
+        a = len(num_str)
+        return n == sum(int(digit) ** a for digit in num_str)
     
     def es_cuadrado_magico(self, matriz):
-        """
-        Verifica si una matriz es un cuadrado mágico (suma igual en filas, columnas y diagonales).
-        
-        Args:
-            matriz (list): Lista de listas que representa una matriz cuadrada
-            
-        Returns:
-            bool: True si es un cuadrado mágico, False en caso contrario
-        """
-        return True 
+        n = len(matriz)
+        suma_filas = [sum(fila) for fila in matriz]
+        suma_columnas = [sum(matriz[i][j] for i in range(n)) for j in range(n)]
+        suma_diagonal_principal = sum(matriz[i][i] for i in range(n))
+        suma_diagonal_secundaria = sum(matriz[i][n - 1 - i] for i in range(n))
+        return (
+            len(set(suma_filas)) == 1 and
+            len(set(suma_columnas)) == 1 and
+            suma_filas[0] == suma_columnas[0] == suma_diagonal_principal == suma_diagonal_secundaria
+        )
