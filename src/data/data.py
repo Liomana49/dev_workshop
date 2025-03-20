@@ -14,7 +14,7 @@ class Data:
         Returns:
             list: Lista con los elementos en orden inverso
         """
-        pass
+        return lista 
     
     def buscar_elemento(self, lista, elemento):
         """
@@ -28,7 +28,7 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        pass
+        return -1
     
     def eliminar_duplicados(self, lista):
         """
@@ -41,7 +41,7 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        pass
+        return lista_sin_duplicados 
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -54,7 +54,7 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        pass
+        return sorted (lista1 + lista2)
     
     def rotar_lista(self, lista, k):
         """
@@ -67,7 +67,7 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        pass
+        return lista[-k:] + lista[:-k] 
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -79,7 +79,7 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        pass
+        return sum(range(1, n + 1)) - sum(lista)
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
@@ -92,7 +92,7 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        pass
+        return set(conjunto1).issubset(set(conjunto2))
     
     def implementar_pila(self):
         """
@@ -101,7 +101,14 @@ class Data:
         Returns:
             dict: Diccionario con métodos push, pop, peek y is_empty
         """
-        pass
+        return{
+            "puhs": pila.append,
+            "pop": pila.pop,
+            "peek": lambda: pila[-1] if pila else None,
+            "is_empty": lambda: len(pila) ==0
+        }
+
+    
     
     def implementar_cola(self):
         """
@@ -110,8 +117,12 @@ class Data:
         Returns:
             dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
         """
-        pass
-    
+        return {
+        "enqueue": cola.append,
+        "dequeue": cola.popleft,
+        "peek": lambda: cola[0] if cola else None,  
+        "is_empty": lambda: len(cola) == 0  
+    }
     def matriz_transpuesta(self, matriz):
         """
         Calcula la transpuesta de una matriz.
@@ -122,4 +133,5 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        pass
+        return [list(fila) for fila in zip(*matriz)]
+    

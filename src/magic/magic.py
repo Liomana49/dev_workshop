@@ -14,7 +14,7 @@ class Magic:
         Returns:
             int: El n-ésimo número de Fibonacci
         """
-        pass
+        return self.fibonaci(n - 1) + self.fibonacci(n - 2)
     
     def secuencia_fibonacci(self, n):
         """
@@ -26,7 +26,7 @@ class Magic:
         Returns:
             list: Lista con los primeros n números de Fibonacci
         """
-        pass
+        return secuencia 
     
     def es_primo(self, n):
         """
@@ -38,7 +38,7 @@ class Magic:
         Returns:
             bool: True si n es primo, False en caso contrario
         """
-        pass
+        return true 
     
     def generar_primos(self, n):
         """
@@ -50,7 +50,7 @@ class Magic:
         Returns:
             list: Lista de números primos hasta n
         """
-        pass
+        return primos 
     
     def es_numero_perfecto(self, n):
         """
@@ -62,7 +62,7 @@ class Magic:
         Returns:
             bool: True si n es un número perfecto, False en caso contrario
         """
-        pass
+        return n == sum(i for i in range (1, n) if n % i == 0)
     
     def triangulo_pascal(self, filas):
         """
@@ -74,7 +74,7 @@ class Magic:
         Returns:
             list: Lista de listas que representa el triángulo de Pascal
         """
-        pass
+        return resultado
     
     def factorial(self, n):
         """
@@ -86,7 +86,7 @@ class Magic:
         Returns:
             int: El factorial de n
         """
-        pass
+        return n * self.factorial(n - 1)
     
     def mcd(self, a, b):
         """
@@ -99,7 +99,7 @@ class Magic:
         Returns:
             int: El máximo común divisor de a y b
         """
-        pass
+        return a 
     
     def mcm(self, a, b):
         """
@@ -112,7 +112,7 @@ class Magic:
         Returns:
             int: El mínimo común múltiplo de a y b
         """
-        pass
+        return abs(a * b) // self.mcd(a, b) if a and b else 0
     
     def suma_digitos(self, n):
         """
@@ -124,7 +124,7 @@ class Magic:
         Returns:
             int: La suma de los dígitos de n
         """
-        pass
+        return sum(int(d) for d in str(abs(n)))
     
     def es_numero_armstrong(self, n):
         """
@@ -136,7 +136,7 @@ class Magic:
         Returns:
             bool: True si n es un número de Armstrong, False en caso contrario
         """
-        pass
+        return n == sum(int(d) ** len(num_str) for d in num_str)
     
     def es_cuadrado_magico(self, matriz):
         """
@@ -148,4 +148,4 @@ class Magic:
         Returns:
             bool: True si es un cuadrado mágico, False en caso contrario
         """
-        pass
+        return True 
